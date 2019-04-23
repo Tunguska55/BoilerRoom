@@ -1,0 +1,11 @@
+#/usr/bin/env bash
+echo "Gathering the necessary build tools"
+sudo yum install kernel-devel kernel-headers make patch gcc -y
+echo "Downloading the correct repos"
+sudo wget https://download.virtualbox.org/virtualbox/rpm/el/virtualbox.repo -P /etc/yum.repos.d
+echo "Attempting to install Virtual Box 6.0"
+sudo yum install VirtualBox-6.0 -y
+echo "Installing the extensions"
+cd /tmp/
+sudo wget https://download.virtualbox.org/virtualbox/6.0.6/Oracle_VM_VirtualBox_Extension_Pack-6.0.6.vbox-extpack
+sudo VBoxManage extpack install Oracle_VM_VirtualBox_Extension_Pack-6.0.6.vbox-extpack
